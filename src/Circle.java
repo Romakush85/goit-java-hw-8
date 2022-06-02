@@ -16,11 +16,23 @@ public class Circle extends Shape {
 
     @Override
     public double getArea() {
-        return 0;
+        return Math.PI * getRadius() * getRadius();
     }
 
     @Override
     public double getPerimeter() {
-        return 0;
+        return 2 * Math.PI * getRadius();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Circle circle = (Circle) obj;
+        return this.radius == circle.radius;
     }
 }

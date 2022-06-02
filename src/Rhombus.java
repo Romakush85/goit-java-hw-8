@@ -24,13 +24,30 @@ public class Rhombus extends Shape {
         this.diagonalB = diagonalB;
     }
 
+    public double getSide() {
+        return Math.sqrt((diagonalA / 2) * (diagonalA / 2) + (diagonalB / 2) * (diagonalB / 2));
+    }
+
     @Override
     public double getArea() {
-        return 0;
+        return (diagonalA * diagonalB) / 2;
     }
 
     @Override
     public double getPerimeter() {
-        return 0;
+        return 4 * getSide();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Rhombus rhombus = (Rhombus) obj;
+        return (this.diagonalA == rhombus.diagonalA && this.diagonalB == rhombus.diagonalB) ||
+                (this.diagonalA == rhombus.diagonalB && this.diagonalB == rhombus.diagonalA);
     }
 }

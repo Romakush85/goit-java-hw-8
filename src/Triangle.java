@@ -1,3 +1,8 @@
+import java.util.Arrays;
+import java.util.List;
+
+import static java.util.Arrays.*;
+
 public class Triangle extends Shape {
     private double a;
     private double b;
@@ -36,11 +41,28 @@ public class Triangle extends Shape {
 
     @Override
     public double getArea() {
-        return 0;
+        return Math.sqrt((getPerimeter() / 2) * ((getPerimeter() / 2) - a) * ((getPerimeter() / 2) - b) * ((getPerimeter() / 2) - c));
     }
 
     @Override
     public double getPerimeter() {
-        return 0;
+        return a + b + c;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Triangle triangle = (Triangle) obj;
+        double[] thisSides = {this.a, this.b, this.c};
+        double[] objSides = {triangle.a, triangle.b, triangle.c};
+        Arrays.sort(thisSides);
+        Arrays.sort(objSides);
+//        return Arrays.sort(thisSides);
+        return Arrays.equals(thisSides, objSides);
     }
 }

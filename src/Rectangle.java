@@ -26,11 +26,24 @@ public class Rectangle extends Shape {
 
     @Override
     public double getArea() {
-        return 0;
+        return sideA * sideB;
     }
 
     @Override
     public double getPerimeter() {
-        return 0;
+        return (sideA + sideB) * 2;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Rectangle rectangle = (Rectangle) obj;
+        return (this.sideA == rectangle.sideA && this.sideB == rectangle.sideB) ||
+         (this.sideA == rectangle.sideB && this.sideB == rectangle.sideA);
     }
 }
